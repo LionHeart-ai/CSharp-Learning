@@ -1,0 +1,26 @@
+static class QuestLogic
+{
+    public static bool CanFastAttack(bool knightIsAwake) => knightIsAwake ? false : true;
+
+    public static bool CanSpy(bool knightIsAwake, bool archerIsAwake, bool prisonerIsAwake)
+    {
+        if(knightIsAwake || archerIsAwake || prisonerIsAwake) return true;
+        return false;
+        //throw new NotImplementedException("Please implement the (static) QuestLogic.CanSpy() method");
+    }
+
+    public static bool CanSignalPrisoner(bool archerIsAwake, bool prisonerIsAwake)
+    {
+        if(!archerIsAwake && prisonerIsAwake) return true;
+        return false;
+        //throw new NotImplementedException("Please implement the (static) QuestLogic.CanSignalPrisoner() method");
+    }
+
+    public static bool CanFreePrisoner(bool knightIsAwake, bool archerIsAwake, bool prisonerIsAwake, bool petDogIsPresent)
+    {
+        if(!archerIsAwake && petDogIsPresent) return true;
+        if(prisonerIsAwake && !knightIsAwake && !archerIsAwake && !petDogIsPresent) return true;
+        return false;
+        //throw new NotImplementedException("Please implement the (static) QuestLogic.CanFreePrisoner() method");
+    }
+}
